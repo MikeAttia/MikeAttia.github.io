@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>Dicee</title>
+  <link rel="stylesheet" href="styles.css">
+  <!-- <script src="dicee.js"></script> -->
+</head>
+
+<body>
+
+  <div class="container">
+    <h1>Cool Dice</h1>
+    <h1 id='winner'></h1>
+    <div class="button">
+      <button id="play">Lets Go 🚩</button>
+    </div>
+    <div class="result">
+      <div class='player1'>
+        <h2 id='score1'>Score1</h2>
+      </div>
+      <div class='player2'>
+        <h2 id='score2'>Score2</h2>
+      </div>
+    </div>
+
+    <div class="dice">
+      <p>Player 1</p>
+      <img class="img1" src="images/6.png">
+    </div>
+
+    <div class="dice">
+      <p>Player 2</p>
+      <img class="img2" src="images/6.png">
+    </div>
+    <!-- <script>
+  document.getElementById('play').onclick = function () {myFunction()};
+</script> -->
+  </div>
+
+  <script>
+    var score1 = 0;
+    var score2 = 0;
+
+    document.getElementById('play').onclick = function () {
+      var randomNumber1 = Math.floor(Math.random() * 6) + 1;
+      var randomImgSource1 = 'images/' + randomNumber1 + '.png';
+      var image1 = document.querySelectorAll('img')[0].setAttribute('src', randomImgSource1);
+      var randomNumber2 = Math.floor(Math.random() * 6) + 1;
+      var randomImageSource2 = 'images/' + randomNumber2 + '.png';
+      var image2 = document.querySelectorAll('img')[1].setAttribute('src', randomImageSource2);
+
+
+
+
+
+
+      if (randomNumber1 > randomNumber2) {
+        score1 = score1 + 1;
+        document.getElementById('score1').innerHTML = score1;
+
+      }
+     if (randomNumber2 > randomNumber1) {
+        score2 = score2 + 1;
+        document.getElementById('score2').innerHTML = score2;
+      }
+      if (score1 = score1){
+        
+        document.getElementById('score1').innerHTML = score1;
+
+        score2 = score2;
+        document.getElementById('score2').innerHTML = score2;
+      }
+      if (score1 >= 5) {
+        document.getElementById('winner').innerHTML = "Player One Won 💰 💎";
+        setTimeout(function () {
+          document.getElementById('score1').innerHTML = 0;
+          document.getElementById('score2').innerHTML = 0;
+          score1 = 0;
+        }, 3000);
+        setTimeout(function(){
+          location.reload();
+        },5000);
+        
+      }
+      else if  (score2 >= 5) {
+        document.getElementById('winner').innerHTML = 'player Two Won 💰 💎';
+        setTimeout(function () {
+          document.getElementById('score1').innerHTML = 0;
+          document.getElementById('score2').innerHTML = 0;
+        }, 5000);
+        setTimeout(function(){
+          location.reload();
+        },4000);
+
+      }
+
+
+      ;//closing if.
+
+      //closing forloop.
+    }
+
+  </script>
+
+
+
+</body>
+
+
+
+</html>
